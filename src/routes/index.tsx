@@ -1,18 +1,22 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ClientsDataProvider } from "../hooks/useClients";
+import { ToastContainer } from "react-toastify";
 import Home from "../pages/Home";
-import { theme } from "../styles/theme";
 import { Header } from "../components/Header";
+import { GlobalStyle } from "../styles/GlobalStyle";
 
 export const RoutesApp = () => {
   return (
     <BrowserRouter>
-      <ChakraProvider theme={theme}>
+      <GlobalStyle />
+      <ClientsDataProvider>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/edit-client/:id" element={<Home />} />
         </Routes>
-      </ChakraProvider>
+        <ToastContainer autoClose={3000} />
+      </ClientsDataProvider>
     </BrowserRouter>
   );
 };

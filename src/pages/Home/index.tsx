@@ -1,32 +1,30 @@
-import { HStack, Heading } from "@chakra-ui/react";
-import { InputSearch } from "../../components/InputSearch";
-import { Layout } from "../../components/Layout";
+import { useState } from "react";
 import { Button } from "../../components/Button";
+import { InputSearch } from "../../components/Input/InputSearch";
+import { Layout } from "../../components/Layout";
+import { AiFillPlusSquare } from "react-icons/ai";
 import { ClientsCard } from "../../components/ClientsCard";
-import { IoIosPersonAdd } from "react-icons/io";
+import { BoxClient, TitleHome } from "./styles";
+import { ModalCreateClient } from "../../components/Modal/ModalCreateClient";
 
 const Home = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   return (
-    <Layout>
-      <HStack as="header" w="100%" justifyContent="space-between">
-        <Heading fontWeight="bold" fontSize="3xl">
-          Clientes
-        </Heading>
-        <Button
-          backgroundColor="green.400"
-          width="250px"
-          color="white"
-          bgHover="green.500"
-        >
-          <IoIosPersonAdd fontSize={22} style={{ marginRight: "10px" }} />
-          Novo cliente
-        </Button>
-      </HStack>
-      <HStack as="main" w="100%" my="8" justifyContent="flex-end">
-        <InputSearch />
-      </HStack>
-      <ClientsCard />
-    </Layout>
+    <>
+      <Layout>
+        <BoxClient>
+          <InputSearch />
+          <Button onClick={() => setModalIsOpen(true)}>
+            <AiFillPlusSquare fontSize={24} color="white" />
+            Novo cliente
+          </Button>
+        </BoxClient>
+        <TitleHome>Clientes</TitleHome>
+        <ClientsCard />
+      </Layout>
+      {modalIsOpen && <ModalCreateClient setModalIsOpen={setModalIsOpen} />}
+    </>
   );
 };
 

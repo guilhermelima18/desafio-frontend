@@ -1,0 +1,72 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "name": "Guilherme Lima",
+      "email": "guilhermelima18@hotmail.com",
+      "phone": "14998863973",
+      "groupId": 1
+    },
+    {
+      "id": 2,
+      "name": "Renato Lima",
+      "email": "reantolima@hotmail.com",
+      "phone": "14996103774",
+      "groupId": 1
+    },
+    {
+      "id": 3
+    },
+    {
+      "name": "Carlos Olivera",
+      "email": "carlos@teste.com",
+      "phone": "14997886897",
+      "groupId": 2,
+      "id": 4
+    },
+    {
+      "name": "Alexandre Góes",
+      "email": "alexandre@teste.com",
+      "phone": "14997158896",
+      "groupId": 1,
+      "id": 5
+    },
+    {
+      "name": "teste",
+      "email": "asdasdsadsadsadsad@teste.com",
+      "phone": "1499999999",
+      "groupId": 2,
+      "id": 6
+    },
+    {
+      "name": "iuaisdhuasihdiuasdh",
+      "email": "uaisdhuasihd@dauhsduiasdhas.com",
+      "phone": "51561651561",
+      "groupId": 1,
+      "id": 7
+    },
+    {
+      "name": "iahsdiuahsiudsha",
+      "email": "auishduia@duahsduias.com",
+      "phone": "16565465465",
+      "groupId": 2,
+      "id": 8
+    },
+    {
+      "id": 9,
+      "name": "guilherme",
+      "email": "gui@teste.com",
+      "phone": "56465465465"
+    }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "description": "Tecnologia"
+    },
+    {
+      "id": 2,
+      "description": "Música"
+    }
+  ]
+}

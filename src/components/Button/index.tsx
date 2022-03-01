@@ -1,29 +1,15 @@
-import { ReactNode } from "react";
-import { Button as ButtonChakra, ButtonGroupProps } from "@chakra-ui/react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
+import { ButtonContainer } from "./styles";
 
-interface ButtonProps extends ButtonGroupProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  backgroundColor: string;
-  width: string;
-  color: string;
-  bgHover: string;
+  marginTop?: string;
 }
 
-export const Button = ({
-  children,
-  backgroundColor,
-  width,
-  color,
-  bgHover,
-}: ButtonProps) => {
+export const Button = ({ children, marginTop, ...rest }: ButtonProps) => {
   return (
-    <ButtonChakra
-      bg={backgroundColor}
-      w={width}
-      color={color}
-      _hover={{ backgroundColor: `${bgHover}` }}
-    >
+    <ButtonContainer style={{ marginTop: `${marginTop}` }} {...rest}>
       {children}
-    </ButtonChakra>
+    </ButtonContainer>
   );
 };

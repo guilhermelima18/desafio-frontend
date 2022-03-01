@@ -1,56 +1,68 @@
-import { Flex, Heading, Text, HStack } from "@chakra-ui/react";
-import { Button } from "../../Button";
-import { AiFillEdit } from "react-icons/ai";
-import { ImBin } from "react-icons/im";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ButtonActions } from "../../Button/ButtonActions";
+import { FiEdit } from "react-icons/fi";
+import { IoMdRemoveCircleOutline } from "react-icons/io";
+import { ModalUpdateClient } from "../../Modal/ModalUpdateClient";
+import { BoxContainer, TableContainer, BoxActions } from "./styles";
+import { ClientsProps } from "../../../types/clients";
 
-export const BoxCard = () => {
+type ClientProps = {
+  clients: ClientsProps[];
+};
+
+export const BoxCard = ({ clients }: ClientProps) => {
+  const navigate = useNavigate();
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   return (
-    <Flex
-      flexDir="column"
-      border="1px solid rgba(200, 200, 200, 0.8)"
-      m="3"
-      p="3"
-      borderRadius="lg"
-    >
-      <Text fontWeight="bold" my="1">
-        Nome:{" "}
-        <Text as="span" fontSize="sm" fontWeight="normal">
-          Guilherme Lima
-        </Text>
-      </Text>
-      <Text fontWeight="bold" my="1">
-        Telefone:{" "}
-        <Text as="span" fontSize="sm" fontWeight="normal">
-          (14) 99886-3973
-        </Text>
-      </Text>
-      <Text fontWeight="bold" my="1">
-        E-mail:{" "}
-        <Text as="span" fontSize="sm" fontWeight="normal">
-          guilhermelima18@hotmail.com
-        </Text>
-      </Text>
-      <Heading fontSize="lg" my="3">
-        Grupo: Tecnologia
-      </Heading>
-      <HStack justifyContent="center" mt="5">
-        <Button
-          backgroundColor="blue.500"
-          width="50px"
-          color="white"
-          bgHover="blue.700"
-        >
-          <AiFillEdit color="white" fontSize={24} />
-        </Button>
-        <Button
-          backgroundColor="red.500"
-          width="50px"
-          color="white"
-          bgHover="red.700"
-        >
-          <ImBin color="white" fontSize={24} />
-        </Button>
-      </HStack>
-    </Flex>
+    <BoxContainer>
+      <TableContainer>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Grupo</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          {clients.map(({ id, name, email, phone }) => (
+            <tr key={id}>
+              <td>{name}</td>
+              <td>{email}</td>
+              <td>{phone}</td>
+              <td>Tecnologia</td>
+              <td>
+                <BoxActions>
+                  <ButtonActions
+                    width="32px"
+                    height="32px"
+                    onClick={() => {
+                      setModalIsOpen(true);
+                      navigate(`/edit-client/${id}`);
+                    }}
+                  >
+                    <FiEdit fontSize={20} />
+                  </ButtonActions>
+                  <ButtonActions
+                    width="32px"
+                    height="32px"
+                    onClick={() => {
+                      setModalIsOpen(true);
+                      navigate(`/delete-client/${id}`);
+                    }}
+                  >
+                    <IoMdRemoveCircleOutline fontSize={20} />
+                  </ButtonActions>
+                </BoxActions>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </TableContainer>
+      {modalIsOpen && <ModalUpdateClient setModalIsOpen={setModalIsOpen} />}
+    </BoxContainer>
   );
 };

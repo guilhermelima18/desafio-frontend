@@ -1,34 +1,25 @@
-import { VStack, SimpleGrid, HStack } from "@chakra-ui/react";
-import { Button } from "../Button";
+import { useClients } from "../../hooks/useClients";
+import { ButtonActions } from "../Button/ButtonActions";
+import { Loading } from "../Loading";
 import { BoxCard } from "./BoxCard";
+import { ClientsCardContainer, BoxPagination } from "./styles";
 
 export const ClientsCard = () => {
+  const { clients, loading } = useClients();
+
   return (
-    <VStack spacing="8">
-      <SimpleGrid minChildWidth="350px" width="100%" mb="10">
-        <BoxCard />
-        <BoxCard />
-        <BoxCard />
-        <BoxCard />
-      </SimpleGrid>
-      <HStack>
-        <Button
-          backgroundColor="gray.900"
-          width="100px"
-          color="white"
-          bgHover="gray.700"
-        >
-          Anterior
-        </Button>
-        <Button
-          backgroundColor="gray.900"
-          width="100px"
-          color="white"
-          bgHover="gray.700"
-        >
-          Próxima
-        </Button>
-      </HStack>
-    </VStack>
+    <ClientsCardContainer>
+      {loading ? <Loading /> : <BoxCard clients={clients} />}
+      {!loading && (
+        <BoxPagination>
+          <ButtonActions width="100px" height="35px">
+            Anterior
+          </ButtonActions>
+          <ButtonActions width="100px" height="35px">
+            Próxima
+          </ButtonActions>
+        </BoxPagination>
+      )}
+    </ClientsCardContainer>
   );
 };
