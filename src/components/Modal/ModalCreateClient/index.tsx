@@ -14,7 +14,7 @@ import { Form } from "../../Form";
 import { InputGroup } from "../../Input/InputGroup";
 import { Select } from "../../Select";
 import { GroupsProps } from "../../../types/groups";
-import { ModalContainer, FormGroup, ButtonClose, ModalTitle } from "./styles";
+import { ModalContainer, FormGroup, ButtonClose, ModalTitle } from "../styles";
 
 interface ModalCreateClientProps {
   setModalIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -62,7 +62,7 @@ export const ModalCreateClient = ({
 
     setModalIsOpen(false);
     setReloading(true);
-    navigate("/");
+    navigate("/clients");
   }
 
   return (
@@ -106,7 +106,7 @@ export const ModalCreateClient = ({
           type="submit"
           onClick={() => {
             setModalIsOpen(false);
-            navigate("/");
+            navigate("/clients");
           }}
         >
           X

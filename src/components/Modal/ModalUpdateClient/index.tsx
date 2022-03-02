@@ -12,11 +12,7 @@ import { api } from "../../../services/api";
 import { Button } from "../../Button";
 import { Form } from "../../Form";
 import { InputGroup } from "../../Input/InputGroup";
-import {
-  ModalContainer,
-  FormGroup,
-  ButtonClose,
-} from "../ModalCreateClient/styles";
+import { ModalContainer, FormGroup, ButtonClose } from "../styles";
 
 interface ModalUpdateClientProps {
   setModalIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -73,7 +69,7 @@ export const ModalUpdateClient = ({
 
     setModalIsOpen(false);
     setReloading(true);
-    navigate("/");
+    navigate("/clients");
   }
 
   return (
@@ -110,7 +106,7 @@ export const ModalUpdateClient = ({
           type="submit"
           onClick={() => {
             setModalIsOpen(false);
-            navigate("/");
+            navigate("/clients");
           }}
         >
           X

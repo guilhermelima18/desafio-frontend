@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HeaderContainer = styled.header`
   background-color: var(--primary-color);
   width: 100%;
-  height: 20vh;
+  height: 10vh;
   padding: 0 1rem;
 `;
 
@@ -24,6 +24,12 @@ export const BoxLogo = styled.div`
   h1 {
     color: white;
   }
+
+  @media (max-width: 860px) {
+    h1 {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export const BoxMenu = styled.div`
@@ -35,5 +41,6 @@ export const BoxMenu = styled.div`
     color: white;
     font-size: 1rem;
     font-weight: bold;
+    padding: 0.5rem 0;
   }
 `;

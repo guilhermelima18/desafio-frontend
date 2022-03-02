@@ -1,7 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { HeaderContainer, NavContainer, BoxLogo, BoxMenu } from "./styles";
 
 export const Header = () => {
+  const { pathname } = useLocation();
+
+  const linkPathnameStyled = {
+    padding: "0.5rem 0",
+    borderBottom: "2px solid white",
+  };
+
   return (
     <HeaderContainer>
       <NavContainer>
@@ -9,8 +16,18 @@ export const Header = () => {
           <h1>Desafio Frontend</h1>
         </BoxLogo>
         <BoxMenu>
-          <Link to="/">Início</Link>
-          <Link to="/">Resumos</Link>
+          <span
+            style={pathname === "/" ? linkPathnameStyled : { padding: "0" }}
+          >
+            <Link to="/">Início</Link>
+          </span>
+          <span
+            style={
+              pathname === "/resumes" ? linkPathnameStyled : { padding: "0" }
+            }
+          >
+            <Link to="/resumes">Resumos</Link>
+          </span>
         </BoxMenu>
       </NavContainer>
     </HeaderContainer>

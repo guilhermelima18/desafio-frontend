@@ -22,13 +22,6 @@
       "groupId": 2
     },
     {
-      "id": 5,
-      "name": "Caio Rodrigues",
-      "email": "caio@hotmail.com.br",
-      "phone": "14991485016",
-      "groupId": 1
-    },
-    {
       "id": 6,
       "name": "Rodolfo Rodrigues",
       "email": "rodolfo@teste.com.br",
@@ -55,20 +48,27 @@
       "phone": "14996463121",
       "groupId": 4,
       "id": 9
+    },
+    {
+      "id": 10,
+      "name": "Josias",
+      "email": "josias@teste.com.br",
+      "phone": "14658997652",
+      "groupId": 3
     }
   ],
   "groups": [
     {
       "id": 1,
-      "description": "Tecnologia"
+      "description": "Tecnologia de 2025"
     },
     {
       "id": 2,
       "description": "Música"
     },
     {
-      "description": "Dança",
-      "id": 3
+      "id": 3,
+      "description": "Dança 12"
     },
     {
       "description": "Axé",
@@ -77,6 +77,10 @@
     {
       "description": "Filmes",
       "id": 5
+    },
+    {
+      "description": "Engenharia",
+      "id": 6
     }
   ]
 }

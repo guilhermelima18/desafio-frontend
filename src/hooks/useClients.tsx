@@ -82,6 +82,8 @@ export function ClientsDataProvider({ children }: ClientsDataProviderProps) {
   }
 
   async function searchClient(clientName: string) {
+    setLoading(true);
+
     const response = await api.get(`/clients?name_like=${clientName}`);
 
     if (response) {
@@ -89,6 +91,8 @@ export function ClientsDataProvider({ children }: ClientsDataProviderProps) {
         setClients(response.data);
       }
     }
+
+    setLoading(false);
   }
 
   async function createClient(client: CreateClientProps) {

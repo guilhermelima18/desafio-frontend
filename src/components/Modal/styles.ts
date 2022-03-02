@@ -34,6 +34,13 @@ export const FormGroup = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+
+  @media (max-width: 780px) {
+    & {
+      flex-direction: column;
+      gap: 0px;
+    }
+  }
 `;
 
 export const ButtonActionsGroup = styled.div`

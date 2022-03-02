@@ -10,7 +10,7 @@ import {
   ButtonClose,
   ModalTitle,
   ButtonActionsGroup,
-} from "../ModalCreateClient/styles";
+} from "../styles";
 
 interface ModalDeleteClientProps {
   setModalIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -33,14 +33,16 @@ export const ModalDeleteClient = ({
 
     setModalIsOpen(false);
     setReloading(true);
-    navigate("/");
+    navigate("/clients");
   }
 
   return (
     <ModalContainer>
       <Form onSubmit={handleDeleteClientSubmit}>
         <ModalTitle>Excluir cliente</ModalTitle>
-        <h3>Deseja realmente excluir o cliente selecionado?</h3>
+        <h3 style={{ textAlign: "center" }}>
+          Deseja realmente excluir o cliente selecionado?
+        </h3>
 
         <ButtonActionsGroup>
           <ButtonActions
@@ -48,7 +50,7 @@ export const ModalDeleteClient = ({
             height="45px"
             onClick={() => {
               setModalIsOpen(false);
-              navigate("/");
+              navigate("/clients");
             }}
           >
             Cancelar
@@ -59,7 +61,7 @@ export const ModalDeleteClient = ({
           type="submit"
           onClick={() => {
             setModalIsOpen(false);
-            navigate("/");
+            navigate("/clients");
           }}
         >
           X

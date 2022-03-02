@@ -5,11 +5,7 @@ import { toast } from "react-toastify";
 import { Button } from "../../Button";
 import { Form } from "../../Form";
 import { InputGroup } from "../../Input/InputGroup";
-import {
-  ModalContainer,
-  ButtonClose,
-  ModalTitle,
-} from "../ModalCreateClient/styles";
+import { ModalContainer, ButtonClose, ModalTitle } from "../styles";
 
 interface ModalCreateClientProps {
   setModalIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -36,7 +32,7 @@ export const ModalCreateGroup = ({
 
     setModalIsOpen(false);
     setReloading(true);
-    navigate("/");
+    navigate("/groups");
   }
 
   return (
@@ -56,7 +52,7 @@ export const ModalCreateGroup = ({
           type="submit"
           onClick={() => {
             setModalIsOpen(false);
-            navigate("/");
+            navigate("/groups");
           }}
         >
           X

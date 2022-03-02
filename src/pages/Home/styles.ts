@@ -1,27 +1,55 @@
 import styled from "styled-components";
 
-export const BoxClient = styled.div`
+export const HomeContainer = styled.div`
   width: 100%;
+  height: calc(100vh - 10vh);
   display: flex;
-  align-items: center;
-  gap: 20px;
-`;
+  justify-content: center;
 
-export const TitleHome = styled.h1`
-  margin: 2rem 0;
-  font-size: 1.8rem;
-  position: relative;
-  padding: 0.5rem 0;
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  section {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
 
-  &::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    border-bottom: 2px solid black;
+    img {
+      width: 100%;
+      height: 100%;
+      opacity: 0.9;
+      border-radius: 7px;
+    }
+  }
+
+  main {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+
+    h2 {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 880px) {
+    & {
+      height: auto;
+      flex-direction: column;
+
+      section {
+        width: 100%;
+      }
+
+      main {
+        width: 100%;
+        margin: 2rem 0;
+      }
+    }
   }
 `;

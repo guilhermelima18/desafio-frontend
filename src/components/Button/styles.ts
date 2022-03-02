@@ -8,7 +8,7 @@ export const ButtonContainer = styled.button`
   color: white;
   border: 0;
   outline: none;
-  border-radius: 8px;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,5 +17,11 @@ export const ButtonContainer = styled.button`
 
   &:hover {
     background-color: var(--secondary-color-hover);
+  }
+
+  @media (max-width: 500px) {
+    & {
+      max-width: 100%;
+    }
   }
 `;

@@ -3,8 +3,10 @@ import { ClientsDataProvider } from "../hooks/useClients";
 import { ToastContainer } from "react-toastify";
 import Home from "../pages/Home";
 import { Header } from "../components/Header";
-import { GlobalStyle } from "../styles/GlobalStyle";
 import { GroupsDataProvider } from "../hooks/useGroups";
+import { GroupsBoxCard } from "../components/Cards/GroupsBoxCard";
+import { ClientsBoxCard } from "../components/Cards/ClientsBoxCard";
+import { GlobalStyle } from "../styles/GlobalStyle";
 
 export const RoutesApp = () => {
   return (
@@ -15,8 +17,11 @@ export const RoutesApp = () => {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/edit-client/:id" element={<Home />} />
-            <Route path="/delete-client/:id" element={<Home />} />
+            <Route path="/clients" element={<ClientsBoxCard />} />
+            <Route path="/clients/edit/:id" element={<ClientsBoxCard />} />
+            <Route path="/clients/delete/:id" element={<ClientsBoxCard />} />
+            <Route path="/groups" element={<GroupsBoxCard />} />
+            <Route path="/groups/edit/:id" element={<GroupsBoxCard />} />
           </Routes>
           <ToastContainer autoClose={3000} />
         </GroupsDataProvider>
