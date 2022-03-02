@@ -12,6 +12,9 @@ export const TitleHome = styled.h1`
   font-size: 1.8rem;
   position: relative;
   padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 
   &::after {
     content: "";

@@ -5,58 +5,56 @@
       "name": "Guilherme Lima",
       "email": "guilhermelima18@hotmail.com",
       "phone": "14998863973",
-      "groupId": 1
+      "groupId": 2
     },
     {
       "id": 2,
       "name": "Renato Lima",
-      "email": "reantolima@hotmail.com",
+      "email": "renatolima@hotmail.com",
       "phone": "14996103774",
+      "groupId": 2
+    },
+    {
+      "id": 3,
+      "name": "Carlos da Silva",
+      "email": "carlos@teste.com.br",
+      "phone": "14998463125",
+      "groupId": 2
+    },
+    {
+      "id": 5,
+      "name": "Caio Rodrigues",
+      "email": "caio@hotmail.com.br",
+      "phone": "14991485016",
       "groupId": 1
     },
     {
-      "id": 3
+      "id": 6,
+      "name": "Rodolfo Rodrigues",
+      "email": "rodolfo@teste.com.br",
+      "phone": "14988162635",
+      "groupId": 2
     },
     {
-      "name": "Carlos Olivera",
-      "email": "carlos@teste.com",
+      "id": 7,
+      "name": "Lucas Otoni",
+      "email": "lucasotoni@hotmail.com",
       "phone": "14997886897",
-      "groupId": 2,
-      "id": 4
+      "groupId": 2
     },
     {
-      "name": "Alexandre Góes",
-      "email": "alexandre@teste.com",
-      "phone": "14997158896",
-      "groupId": 1,
-      "id": 5
-    },
-    {
-      "name": "teste",
-      "email": "asdasdsadsadsadsad@teste.com",
-      "phone": "1499999999",
-      "groupId": 2,
-      "id": 6
-    },
-    {
-      "name": "iuaisdhuasihdiuasdh",
-      "email": "uaisdhuasihd@dauhsduiasdhas.com",
-      "phone": "51561651561",
-      "groupId": 1,
-      "id": 7
-    },
-    {
-      "name": "iahsdiuahsiudsha",
-      "email": "auishduia@duahsduias.com",
-      "phone": "16565465465",
-      "groupId": 2,
+      "name": "Paulo Freitas",
+      "email": "paulofreitas@gmail.com",
+      "phone": "14997306845",
+      "groupId": 5,
       "id": 8
     },
     {
-      "id": 9,
-      "name": "guilherme",
-      "email": "gui@teste.com",
-      "phone": "56465465465"
+      "name": "Daniel Oliveira",
+      "email": "daniel@teste.com",
+      "phone": "14996463121",
+      "groupId": 4,
+      "id": 9
     }
   ],
   "groups": [
@@ -67,6 +65,18 @@
     {
       "id": 2,
       "description": "Música"
+    },
+    {
+      "description": "Dança",
+      "id": 3
+    },
+    {
+      "description": "Axé",
+      "id": 4
+    },
+    {
+      "description": "Filmes",
+      "id": 5
     }
   ]
 }

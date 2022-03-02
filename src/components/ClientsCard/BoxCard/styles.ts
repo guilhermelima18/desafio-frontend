@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const BoxContainer = styled.div`
   width: 100%;
   display: flex;
-  overflow-x: scroll;
   margin-bottom: 3rem;
 `;
 

@@ -32,6 +32,7 @@ export const ModalUpdateClient = ({
     name: "",
     email: "",
     phone: "",
+    groupId: "",
   });
 
   async function getClient() {
@@ -42,6 +43,7 @@ export const ModalUpdateClient = ({
         name: response.data.name,
         email: response.data.email,
         phone: response.data.phone,
+        groupId: response.data.groupId,
       });
     }
   }
@@ -69,8 +71,8 @@ export const ModalUpdateClient = ({
 
     toast.success("Cliente atualizado com sucesso.");
 
-    setReloading(true);
     setModalIsOpen(false);
+    setReloading(true);
     navigate("/");
   }
 

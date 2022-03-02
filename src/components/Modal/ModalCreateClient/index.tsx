@@ -14,7 +14,7 @@ import { Form } from "../../Form";
 import { InputGroup } from "../../Input/InputGroup";
 import { Select } from "../../Select";
 import { GroupsProps } from "../../../types/groups";
-import { ModalContainer, FormGroup, ButtonClose } from "./styles";
+import { ModalContainer, FormGroup, ButtonClose, ModalTitle } from "./styles";
 
 interface ModalCreateClientProps {
   setModalIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -60,14 +60,15 @@ export const ModalCreateClient = ({
 
     toast.success("Cliente cadastrado com sucesso.");
 
-    setReloading(true);
     setModalIsOpen(false);
+    setReloading(true);
     navigate("/");
   }
 
   return (
     <ModalContainer>
       <Form onSubmit={handleCreateClient}>
+        <ModalTitle>Cadastro de clientes</ModalTitle>
         <FormGroup>
           <InputGroup
             labelText="Nome"

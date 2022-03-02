@@ -12,6 +12,10 @@ export const ModalContainer = styled.div`
   justify-content: center;
 `;
 
+export const ModalTitle = styled.h1`
+  margin-bottom: 2rem;
+`;
+
 export const ButtonClose = styled.button`
   width: 30px;
   height: 30px;
@@ -30,4 +34,13 @@ export const FormGroup = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+`;
+
+export const ButtonActionsGroup = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 4rem;
 `;
