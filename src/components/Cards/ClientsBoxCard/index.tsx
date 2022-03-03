@@ -33,8 +33,6 @@ export const ClientsBoxCard = () => {
   const [modalDeleteClientIsOpen, setModalDeleteClientIsOpen] = useState(false);
   const [searchCustomer, setSearchCustomer] = useState("");
 
-  console.log(clients);
-
   async function handleRefreshList() {
     await getClients();
   }
@@ -48,17 +46,12 @@ export const ClientsBoxCard = () => {
     }
   }
 
-  let newArray: any = [];
-
-  if (clients) {
-    newArray = [...clients];
-  }
+  let newArray = [...clients];
+  let groupingClientsAndGroups = [];
 
   const groupIds = groups.map((item) => {
     return item.id;
   });
-
-  let groupingClientsAndGroups = [];
 
   for (var i = 0; i <= newArray.length; i++) {
     for (var j = 0; j <= groupIds.length; j++) {
@@ -130,7 +123,7 @@ export const ClientsBoxCard = () => {
                     <th>E-mail</th>
                     <th>Telefone</th>
                     <th>Grupo</th>
-                    <th>Ação</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>

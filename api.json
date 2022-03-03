@@ -51,36 +51,47 @@
     },
     {
       "id": 10,
-      "name": "Josias",
+      "name": "Josias Gonçalves",
       "email": "josias@teste.com.br",
       "phone": "14658997652",
       "groupId": 3
+    },
+    {
+      "name": "Hemerson Duarte",
+      "email": "hemerson@gmail.com",
+      "phone": "14998796213",
+      "groupId": 1,
+      "id": 11
     }
   ],
   "groups": [
     {
       "id": 1,
-      "description": "Tecnologia de 2025"
+      "description": "Tecnologia"
     },
     {
       "id": 2,
-      "description": "Música"
+      "description": "Engenharia"
     },
     {
       "id": 3,
-      "description": "Dança 12"
+      "description": "Medicina"
     },
     {
-      "description": "Axé",
+      "description": "Arquitetura",
       "id": 4
     },
     {
-      "description": "Filmes",
+      "description": "Segurança Pública",
       "id": 5
     },
     {
-      "description": "Engenharia",
+      "description": "Professor",
       "id": 6
+    },
+    {
+      "description": "Enfermagem",
+      "id": 7
     }
   ]
 }

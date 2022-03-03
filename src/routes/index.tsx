@@ -7,6 +7,7 @@ import { GroupsDataProvider } from "../hooks/useGroups";
 import { GroupsBoxCard } from "../components/Cards/GroupsBoxCard";
 import { ClientsBoxCard } from "../components/Cards/ClientsBoxCard";
 import { GlobalStyle } from "../styles/GlobalStyle";
+import Summaries from "../pages/Summaries";
 
 export const RoutesApp = () => {
   return (
@@ -17,6 +18,7 @@ export const RoutesApp = () => {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="summaries" element={<Summaries />} />
             <Route path="/clients" element={<ClientsBoxCard />} />
             <Route path="/clients/edit/:id" element={<ClientsBoxCard />} />
             <Route path="/clients/delete/:id" element={<ClientsBoxCard />} />

@@ -19,6 +19,7 @@ type GroupsDataContextProps = {
   setReloading: Dispatch<SetStateAction<boolean>>;
   groups: GroupsProps[];
   loading: boolean;
+  setLoading: Dispatch<SetStateAction<boolean>>;
 };
 
 type GroupsDataProviderProps = {
@@ -94,6 +95,7 @@ export function GroupsDataProvider({ children }: GroupsDataProviderProps) {
         setReloading,
         groups,
         loading,
+        setLoading,
       }}
     >
       {children}

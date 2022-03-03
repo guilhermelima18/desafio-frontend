@@ -89,8 +89,8 @@ export const GroupsBoxCard = () => {
               <TableContainer>
                 <thead>
                   <tr>
-                    <th>Nome</th>
-                    <th>Ação</th>
+                    <th>Descrição</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>

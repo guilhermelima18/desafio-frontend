@@ -1,19 +1,12 @@
-import {
-  Dispatch,
-  FormEvent,
-  SetStateAction,
-  useEffect,
-  useState,
-} from "react";
+import { Dispatch, FormEvent, SetStateAction, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useClients } from "../../../hooks/useClients";
-import { api } from "../../../services/api";
+import { useGroups } from "../../../hooks/useGroups";
 import { Button } from "../../Button";
 import { Form } from "../../Form";
 import { InputGroup } from "../../Input/InputGroup";
 import { Select } from "../../Select";
-import { GroupsProps } from "../../../types/groups";
 import { ModalContainer, FormGroup, ButtonClose, ModalTitle } from "../styles";
 
 interface ModalCreateClientProps {
@@ -25,25 +18,11 @@ export const ModalCreateClient = ({
 }: ModalCreateClientProps) => {
   const navigate = useNavigate();
   const { createClient, setReloading } = useClients();
+  const { groups } = useGroups();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [selectGroup, setSelectGroup] = useState("");
-  const [groups, setGroups] = useState<GroupsProps[]>([]);
-
-  async function getGroups() {
-    const response = await api.get("/groups");
-
-    if (response) {
-      if (response.status === 200) {
-        setGroups(response.data);
-      }
-    }
-  }
-
-  useEffect(() => {
-    getGroups();
-  }, []);
 
   async function handleCreateClient(e: FormEvent) {
     setReloading(false);

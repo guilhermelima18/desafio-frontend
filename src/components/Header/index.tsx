@@ -23,10 +23,10 @@ export const Header = () => {
           </span>
           <span
             style={
-              pathname === "/resumes" ? linkPathnameStyled : { padding: "0" }
+              pathname === "/summaries" ? linkPathnameStyled : { padding: "0" }
             }
           >
-            <Link to="/resumes">Resumos</Link>
+            <Link to="/summaries">Resumos</Link>
           </span>
         </BoxMenu>
       </NavContainer>
