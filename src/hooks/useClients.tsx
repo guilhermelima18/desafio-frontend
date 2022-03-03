@@ -60,23 +60,24 @@ export function ClientsDataProvider({ children }: ClientsDataProviderProps) {
     if (linkPage) {
       response = await api.get(linkPage);
     } else {
-      response = await api.get("/clients");
+      response = await api.get("/clients?_page=1&_limit=5");
     }
 
     if (response) {
+      if (response.headers.link) {
+        const { link } = response.headers;
+        const links = parsedLinksHeader(link);
+
+        setParsedLinksPagination({
+          first: links.first,
+          next: links.next,
+          last: links.last,
+        });
+      }
       if (response.status === 200) {
         setClients(response.data);
       }
     }
-
-    /* const { link } = response.headers;
-    const links = parsedLinksHeader(link);
-
-    setParsedLinksPagination({
-      first: links.first,
-      next: links.next,
-      last: links.last,
-    }); */
 
     setLoading(false);
   }
@@ -97,25 +98,34 @@ export function ClientsDataProvider({ children }: ClientsDataProviderProps) {
 
   async function createClient(client: CreateClientProps) {
     try {
+      setLoading(true);
       await api.post("/clients", client);
     } catch (error) {
       toast.error("Erro ao cadastrar o cliente");
+    } finally {
+      setLoading(false);
     }
   }
 
   async function updatedClient(client: UpdateClientProps) {
     try {
+      setLoading(true);
       await api.put(`/clients/${client.id}`, client);
     } catch (error) {
       toast.error("Erro ao atualizar um cliente.");
+    } finally {
+      setLoading(false);
     }
   }
 
   async function deleteClient(clientId: number) {
     try {
+      setLoading(true);
       await api.delete(`/clients/${clientId}`);
     } catch (error) {
       toast.error("Erro ao deletar um cliente.");
+    } finally {
+      setLoading(false);
     }
   }
 

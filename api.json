@@ -43,25 +43,18 @@
       "id": 8
     },
     {
-      "name": "Daniel Oliveira",
-      "email": "daniel@teste.com",
-      "phone": "14996463121",
-      "groupId": 4,
+      "name": "Hemerson Duarte",
+      "email": "hemersonduarte@gmail.com",
+      "phone": "14998741436",
+      "groupId": 1,
       "id": 9
     },
     {
-      "id": 10,
-      "name": "Josias Gonçalves",
-      "email": "josias@teste.com.br",
-      "phone": "14658997652",
-      "groupId": 3
-    },
-    {
-      "name": "Hemerson Duarte",
-      "email": "hemerson@gmail.com",
-      "phone": "14998796213",
-      "groupId": 1,
-      "id": 11
+      "name": "Matheus Silva",
+      "email": "matheus@teste.com",
+      "phone": "14998681315",
+      "groupId": 11,
+      "id": 10
     }
   ],
   "groups": [
@@ -86,12 +79,28 @@
       "id": 5
     },
     {
-      "description": "Professor",
-      "id": 6
+      "id": 6,
+      "description": "Educação"
     },
     {
       "description": "Enfermagem",
       "id": 7
+    },
+    {
+      "description": "Veterinária",
+      "id": 8
+    },
+    {
+      "description": "Social",
+      "id": 9
+    },
+    {
+      "description": "Direito",
+      "id": 10
+    },
+    {
+      "description": "Agronomia",
+      "id": 11
     }
   ]
 }

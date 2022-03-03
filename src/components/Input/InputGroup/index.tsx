@@ -6,6 +6,7 @@ interface InputGroupProps extends InputHTMLAttributes<HTMLInputElement> {
   inputName: string;
   inputType: string;
   inputPlaceholder?: string;
+  error?: string;
 }
 
 export const InputGroup = ({
@@ -13,6 +14,7 @@ export const InputGroup = ({
   inputName,
   inputType,
   inputPlaceholder,
+  error,
   ...rest
 }: InputGroupProps) => {
   return (
@@ -24,6 +26,7 @@ export const InputGroup = ({
         placeholder={inputPlaceholder}
         {...rest}
       />
+      {error && <p>{error}</p>}
     </InputContainer>
   );
 };

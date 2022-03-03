@@ -50,13 +50,18 @@ export const TableContainer = styled.table`
   width: 100%;
   border-spacing: 0 0.3rem;
 
+  th {
+    font-weight: bold;
+    /* font-size: 1.2rem; */
+  }
+
   thead tr th,
   tbody tr td {
     background-color: white;
     padding: 15px;
     text-align: left;
+    font-size: 0.9rem;
     transition: 300ms;
-    font-weight: 500;
     border-bottom: 1px solid rgba(200, 200, 200, 0.7);
   }
 `;

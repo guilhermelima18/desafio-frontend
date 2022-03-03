@@ -12,6 +12,7 @@ import { api } from "../../../services/api";
 import { Button } from "../../Button";
 import { Form } from "../../Form";
 import { InputGroup } from "../../Input/InputGroup";
+import { Loading } from "../../Loading";
 import { ModalContainer, FormGroup, ButtonClose } from "../styles";
 
 interface ModalUpdateClientProps {
@@ -23,7 +24,7 @@ export const ModalUpdateClient = ({
 }: ModalUpdateClientProps) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { updatedClient, setReloading } = useClients();
+  const { loading, updatedClient, setReloading } = useClients();
   const [updateClient, setUpdateClient] = useState({
     name: "",
     email: "",
@@ -101,7 +102,9 @@ export const ModalUpdateClient = ({
           value={updateClient.email}
           onChange={(e) => handleUpdateClient(e)}
         />
-        <Button marginTop="2rem">Atualizar cliente</Button>
+        <Button type="submit" disabled={loading} marginTop="2rem">
+          {loading ? <Loading width="30" height="30" /> : "Atualizar cliente"}
+        </Button>
         <ButtonClose
           type="submit"
           onClick={() => {

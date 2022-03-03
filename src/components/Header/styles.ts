@@ -15,6 +15,7 @@ export const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 `;
 
 export const BoxLogo = styled.div`
@@ -42,5 +43,37 @@ export const BoxMenu = styled.div`
     font-size: 1rem;
     font-weight: bold;
     padding: 0.5rem 0;
+  }
+`;
+
+export const MobileButton = styled.button`
+  background-color: #eee;
+  border-radius: 0.2rem;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  transition: 0.1s;
+
+  &::after {
+    content: "";
+    background: currentColor;
+    width: 1.2rem;
+    height: 2px;
+    display: block;
+    border-radius: 2px;
+    box-shadow: 0 6px currentColor, 0 -6px currentColor;
+  }
+
+  &:focus,
+  &:hover {
+    outline: none;
+    background: white;
+    box-shadow: 0 0 0 3px var(--secondary-color);
+    border-color: #fb1;
+    color: var(--secondary-color);
   }
 `;

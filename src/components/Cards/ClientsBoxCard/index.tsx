@@ -23,10 +23,12 @@ import {
   BoxClient,
   TitleHome,
 } from "../styles";
+import { ButtonPaginationGroup } from "../../Button/ButtonPaginationGroup";
 
 export const ClientsBoxCard = () => {
   const navigate = useNavigate();
-  const { clients, getClients, searchClient, loading } = useClients();
+  const { clients, getClients, searchClient, loading, parsedLinksPagination } =
+    useClients();
   const { groups } = useGroups();
   const [modalClientIsOpen, setModalClientIsOpen] = useState(false);
   const [modalUpdateClientIsOpen, setModalUpdateClientIsOpen] = useState(false);
@@ -178,6 +180,7 @@ export const ClientsBoxCard = () => {
             <ModalDeleteClient setModalIsOpen={setModalDeleteClientIsOpen} />
           )}
         </BoxContainer>
+        <ButtonPaginationGroup />
       </Layout>
     </>
   );

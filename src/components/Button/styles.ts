@@ -19,6 +19,10 @@ export const ButtonContainer = styled.button`
     background-color: var(--secondary-color-hover);
   }
 
+  &:disabled {
+    opacity: 0.7;
+  }
+
   @media (max-width: 500px) {
     & {
       max-width: 100%;

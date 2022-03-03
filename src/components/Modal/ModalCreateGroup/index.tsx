@@ -6,6 +6,7 @@ import { Button } from "../../Button";
 import { Form } from "../../Form";
 import { InputGroup } from "../../Input/InputGroup";
 import { ModalContainer, ButtonClose, ModalTitle } from "../styles";
+import { Loading } from "../../Loading";
 
 interface ModalCreateClientProps {
   setModalIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -15,8 +16,9 @@ export const ModalCreateGroup = ({
   setModalIsOpen,
 }: ModalCreateClientProps) => {
   const navigate = useNavigate();
-  const { createGroup, setReloading } = useGroups();
+  const { createGroup, loading, setReloading } = useGroups();
   const [description, setDescription] = useState("");
+  const [error, setError] = useState("");
 
   async function handleCreateGroupSubmit(e: FormEvent) {
     setReloading(false);
@@ -26,13 +28,18 @@ export const ModalCreateGroup = ({
       description,
     };
 
-    await createGroup(params);
+    if (description.length > 0) {
+      await createGroup(params);
 
-    toast.success("Grupo cadastrado com sucesso.");
+      toast.success("Grupo cadastrado com sucesso.");
 
-    setModalIsOpen(false);
-    setReloading(true);
-    navigate("/groups");
+      setModalIsOpen(false);
+      setReloading(true);
+      navigate("/groups");
+    } else {
+      setError("Preencha o campo corretamente.");
+      toast.info("Campo descrição é obrigatório.");
+    }
   }
 
   return (
@@ -44,10 +51,17 @@ export const ModalCreateGroup = ({
           inputName="description"
           inputType="text"
           inputPlaceholder="Descrição do grupo"
+          error={error}
           value={description}
           onChange={(e: any) => setDescription(e.target.value)}
         />
-        <Button marginTop="2rem">Cadastrar novo grupo</Button>
+        <Button type="submit" disabled={loading} marginTop="2rem">
+          {loading ? (
+            <Loading width="30" height="30" />
+          ) : (
+            "Cadastrar novo grupo"
+          )}
+        </Button>
         <ButtonClose
           type="submit"
           onClick={() => {

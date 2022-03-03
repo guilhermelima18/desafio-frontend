@@ -89,6 +89,7 @@ export const GroupsBoxCard = () => {
               <TableContainer>
                 <thead>
                   <tr>
+                    <th>Código</th>
                     <th>Descrição</th>
                     <th></th>
                   </tr>
@@ -97,6 +98,7 @@ export const GroupsBoxCard = () => {
                   {groups.map(({ id, description }) => {
                     return (
                       <tr key={id}>
+                        <td>{id}</td>
                         <td style={{ width: "100%" }}>{description}</td>
                         <td>
                           <BoxActions>

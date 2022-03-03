@@ -7,12 +7,12 @@ import {
 } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useClients } from "../../../hooks/useClients";
 import { useGroups } from "../../../hooks/useGroups";
 import { api } from "../../../services/api";
 import { Button } from "../../Button";
 import { Form } from "../../Form";
 import { InputGroup } from "../../Input/InputGroup";
+import { Loading } from "../../Loading";
 import { ModalContainer, FormGroup, ButtonClose } from "../styles";
 
 interface ModalUpdateGroupProps {
@@ -22,7 +22,7 @@ interface ModalUpdateGroupProps {
 export const ModalUpdateGroup = ({ setModalIsOpen }: ModalUpdateGroupProps) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { updateGroup, setReloading } = useGroups();
+  const { loading, updateGroup, setReloading } = useGroups();
   const [inputUpdateGroup, setInputUpdateGroup] = useState({ description: "" });
 
   async function getGroup() {
@@ -77,7 +77,9 @@ export const ModalUpdateGroup = ({ setModalIsOpen }: ModalUpdateGroupProps) => {
           value={inputUpdateGroup.description}
           onChange={(e) => handleUpdateGroup(e)}
         />
-        <Button marginTop="2rem">Atualizar grupo</Button>
+        <Button type="submit" disabled={loading} marginTop="2rem">
+          {loading ? <Loading width="30" height="30" /> : "Atualizar grupo"}
+        </Button>
         <ButtonClose
           type="submit"
           onClick={() => {

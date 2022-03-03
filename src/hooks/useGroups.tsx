@@ -71,17 +71,23 @@ export function GroupsDataProvider({ children }: GroupsDataProviderProps) {
 
   async function createGroup(group: CreateGroupProps) {
     try {
+      setLoading(true);
       await api.post("/groups", group);
     } catch (error) {
       toast.error("Erro ao cadastrar um novo grupo.");
+    } finally {
+      setLoading(false);
     }
   }
 
   async function updateGroup(group: GroupsProps) {
     try {
+      setLoading(true);
       await api.put(`/groups/${group.id}`, group);
     } catch (error) {
       toast.error("Erro ao atualizar o grupo.");
+    } finally {
+      setLoading(false);
     }
   }
 

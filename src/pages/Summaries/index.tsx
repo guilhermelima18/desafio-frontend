@@ -1,5 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
-import { useClients } from "../../hooks/useClients";
+import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 import { useGroups } from "../../hooks/useGroups";
 import { Layout } from "../../components/Layout";
 import { Loading } from "../../components/Loading";
@@ -14,8 +13,8 @@ import {
 } from "./styles";
 
 const Summaries = () => {
-  const { clients } = useClients();
   const { groups, loading, setLoading } = useGroups();
+  const [clientsTotal, setClientsTotal] = useState<ClientsProps[]>([]);
   const [selectGroup, setSelectGroup] = useState("");
   const [clientsSelectedGroup, setClientsSelectedGroup] = useState<
     ClientsProps[]
@@ -35,6 +34,26 @@ const Summaries = () => {
     setLoading(false);
   }, []);
 
+  const totalClients = useCallback(async () => {
+    const response = await api.get("/clients");
+
+    if (response) {
+      if (response.status === 200) {
+        setClientsTotal(response.data);
+      }
+    }
+  }, []);
+
+  const returnArrayGroupsIds = clientsTotal.map((item) => {
+    return item.groupId;
+  });
+
+  const removeDuplicateGroupIds = new Set(returnArrayGroupsIds);
+
+  useLayoutEffect(() => {
+    totalClients();
+  }, []);
+
   useEffect(() => {
     if (selectGroup) {
       getGroupSelected(selectGroup);
@@ -49,10 +68,31 @@ const Summaries = () => {
       <Layout>
         <BoxSummaries>
           <h3>
-            Total de clientes cadastrados: <span>{clients.length}</span>
+            Total de clientes cadastrados:{" "}
+            <span>
+              {loading ? (
+                <Loading width="15" height="15" />
+              ) : (
+                clientsTotal && clientsTotal.length
+              )}
+            </span>
           </h3>
           <h3>
-            Total de grupos cadastrados: <span>{groups.length}</span>
+            Total de grupos cadastrados:{" "}
+            <span>
+              {loading ? <Loading width="15" height="15" /> : groups.length}
+            </span>
+          </h3>
+          <h3>
+            Total de grupos sem clientes cadastrados:{" "}
+            <span>
+              {loading ? (
+                <Loading width="15" height="15" />
+              ) : (
+                removeDuplicateGroupIds.size > 0 &&
+                groups.length - removeDuplicateGroupIds.size
+              )}
+            </span>
           </h3>
         </BoxSummaries>
         <BoxSelectGroup>

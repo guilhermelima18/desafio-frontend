@@ -5,6 +5,7 @@ import { useClients } from "../../../hooks/useClients";
 import { Button } from "../../Button";
 import { ButtonActions } from "../../Button/ButtonActions";
 import { Form } from "../../Form";
+import { Loading } from "../../Loading";
 import {
   ModalContainer,
   ButtonClose,
@@ -21,7 +22,7 @@ export const ModalDeleteClient = ({
 }: ModalDeleteClientProps) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { deleteClient, setReloading } = useClients();
+  const { loading, deleteClient, setReloading } = useClients();
 
   async function handleDeleteClientSubmit(e: FormEvent) {
     setReloading(false);
@@ -53,9 +54,11 @@ export const ModalDeleteClient = ({
               navigate("/clients");
             }}
           >
-            Cancelar
+            Não, cancelar
           </ButtonActions>
-          <Button>Excluir</Button>
+          <Button type="submit" disabled={loading}>
+            {loading ? <Loading width="30" height="30" /> : "Sim, excluir"}
+          </Button>
         </ButtonActionsGroup>
         <ButtonClose
           type="submit"
