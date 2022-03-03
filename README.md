@@ -29,6 +29,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Styled-components
 - API JSON-Server
 
+## Rodar projeto
+<p>1º Rode npm install para instalar as dependências do projeto;</p>
+<p>2º Rode npm run server para startar a API do projeto;</p>
+<p>3º Rode npm run dev para startar o Front-end do projeto;</p>
+
 ## 💻 Projeto
 
 Projeto feito para o teste técnico Front-end da Farma Ponte. 💰
